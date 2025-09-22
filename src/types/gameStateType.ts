@@ -1,0 +1,1 @@
+export type gameStateType = {boardState: number[][], scoreState: number}[]
