@@ -4,7 +4,7 @@ import type { gameStateType } from "./types/gameStateType";
 const App = () => {
   const [pressedKey, setPressedKey] = useState("");
   const [score, setScore] = useState(0);
-  const [boardSize, setBoardSize] = useState(4);
+  const boardSize = 4;
   const [gameWon, setGameWon] = useState(false);
 
   function createEmptyBoard() {
