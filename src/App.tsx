@@ -143,6 +143,12 @@ const App = () => {
     }
   }
 
+  function resetGame() {
+    setGameState([{ boardState: initializeBoard(), scoreState: 0 }]);
+    setScore(0);
+    setGameWon(false);
+  }
+
   useEffect(() => {
     if (!gameWon && pressedKey && ["w", "a", "s", "d"].includes(pressedKey)) {
       makeMove(pressedKey);
@@ -196,13 +202,19 @@ const App = () => {
       <div className="mt-4 text-sm text-gray-600">
         Use WASD keys to play: W (up), A (left), S (down), D (right)
       </div>
-      <div className="mt-4 flex justify-start">
+      <div className="mt-4 flex justify-start gap-4">
         <button
           onClick={goToPreviousBoard}
           disabled={gameState.length <= 1}
           className="px-4 py-2 bg-blue-500 text-white rounded disabled:bg-gray-400 disabled:cursor-not-allowed"
         >
           Previous
+        </button>
+        <button
+          onClick={resetGame}
+          className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+        >
+          Reset
         </button>
       </div>
     </div>
