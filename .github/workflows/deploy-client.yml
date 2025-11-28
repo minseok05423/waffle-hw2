@@ -21,8 +21,8 @@ jobs:
 
       - name: Build & Export
         run: |
-          yarn install
-          yarn build
+          npm install
+          npm run build
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
