@@ -1,4 +1,4 @@
-name: deploy-client
+name: deploy-prod
 
 on:
   push:
@@ -34,4 +34,4 @@ jobs:
       - name: Deploy to S3 and Invalidate Cloudfront in prod mode
         run: |
           aws s3 sync ./dist s3://waffle-2025-deploy-minseok-jwa --delete
-          aws cloudfront create-invalidation --distribution-id E2ADHXJ29NNKJL --paths "/*"
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.PROD_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
