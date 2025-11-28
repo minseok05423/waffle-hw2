@@ -18,6 +18,8 @@ jobs:
         with:
           node-version: '20.11.1'
       - name: Install dependencies
-        run: yarn install
-      - name: Check
-        run: yarn check-all
+        run: npm install
+      - name: Lint
+        run: npm run lint
+      - name: Build
+        run: npm run build
